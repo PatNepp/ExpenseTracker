@@ -28,7 +28,7 @@ class ExpenseItem extends Component {
 			<div className="ExpenseItem">
 				<ExpenseDate />
 				<div className="ExpenseItem-description">
-					<h2>{this.props.title}</h2>
+					<h2>{this.props.expense}</h2>
 					<div className="ExpenseItem-amount">${this.props.amount}</div>
 				</div>
 			</div>

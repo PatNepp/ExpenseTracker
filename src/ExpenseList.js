@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import ExpenseItem from './ExpenseItem';
+import './ExpenseList.css';
 
 class ExpenseList extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { expenses: [ { title: `Happy`, amount: 0 } ] };
-	}
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = { expenses: [] };
+	// }
 	render() {
-		const expenseItem = this.state.expenses.map((expense) => {
-			return <ExpenseItem title={expense.title} amount={expense.amount} />;
+		const expenseItem = this.props.expenses.map((expense) => {
+			return <ExpenseItem expense={expense.expense} amount={expense.amount} />;
 		});
-		return <div>{expenseItem}</div>;
+		return <div className="ExpenseList">{expenseItem}</div>;
 	}
 }
 
