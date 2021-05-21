@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./AddExpenseForm.css"
 
 class AddExpenseForm extends Component {
 	constructor(props) {
@@ -13,15 +14,20 @@ class AddExpenseForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.addExpense(this.state);
-		this.setState({ expense: '', amount: '' });
+		this.props.formVisible()
+		this.setState({ expense: '', amount: 0 });
 	};
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form className="AddExpenseForm" onSubmit={this.handleSubmit}>
+				<div className="AddExpenseForm-input">
 				<label htmlFor="expense">Expense: </label>
 				<input id="expense" name="expense" value={this.state.expense} onChange={this.handleChange} />
+				</div>
+				<div className="AddExpenseForm-input">
 				<label htmlFor="amount">Amount: $</label>
 				<input id="amount" name="amount" value={this.state.amount} onChange={this.handleChange} />
+				</div>
 				<button>Add</button>
 			</form>
 		);
